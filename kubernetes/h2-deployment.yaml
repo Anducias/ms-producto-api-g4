@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: h2-database
+  namespace: ms-producto-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: h2-database
+  template:
+    metadata:
+      labels:
+        app: h2-database
+    spec:
+      containers:
+        - name: h2
+          image: luismrodriguezc/h2-database:v1
+          ports:
+            - containerPort: 9092
+            - containerPort: 8082

@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-producto-app
+  namespace: ms-producto-namespace
+  labels:
+    app: ms-producto-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ms-producto-app
+  template:
+    metadata:
+      labels:
+        app: ms-producto-app
+    spec:
+      containers:
+        - name: ms-producto-api
+          image: luismrodriguezc/ms-producto-api:v3
+          ports:
+            - containerPort: 8282
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:h2:tcp://h2-service:9092/~/data/productos"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "sa"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: ""

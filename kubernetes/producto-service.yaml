@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-producto-service
+  namespace: ms-producto-namespace
+  labels:
+    app: ms-producto-app
+spec:
+  type: ClusterIP
+  selector:
+    app: ms-producto-app
+  ports:
+    - protocol: TCP
+      port: 8484
+      targetPort: 8282

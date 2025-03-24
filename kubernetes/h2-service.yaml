@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: h2-service
+  namespace: ms-producto-namespace
+spec:
+  selector:
+    app: h2-database
+  ports:
+    - name: h2-tcp
+      protocol: TCP
+      port: 9092
+      targetPort: 9092
+    - name: h2-web
+      protocol: TCP
+      port: 8082
+      targetPort: 8082
