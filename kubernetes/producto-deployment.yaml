@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ms-producto-api
-          image: luismrodriguezc/ms-producto-api:v3
+          image: luismrodriguezc/ms-producto-api:v4
           ports:
             - containerPort: 8282
           env:

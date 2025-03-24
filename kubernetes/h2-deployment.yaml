@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: h2
-          image: luismrodriguezc/h2-database:v1
+          image: luismrodriguezc/h2-database:v2
           ports:
             - containerPort: 9092
             - containerPort: 8082
